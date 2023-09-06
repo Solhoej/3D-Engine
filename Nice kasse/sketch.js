@@ -94,6 +94,9 @@ function draw() {
   line(xs4+xflyt,ys4+yflyt,xs8+xflyt,ys8+yflyt);
 
   push();
+  fill(255, 105, 180);
+  triangle(xs7+xflyt,ys7+yflyt, xs6+xflyt,ys6+yflyt,xs8+xflyt,ys8+yflyt);
+  triangle(xs5+xflyt,ys5+yflyt, xs6+xflyt,ys6+yflyt,xs7+xflyt,ys7+yflyt);
 
   fill(0,0,255);
   triangle(xs2+xflyt,ys2+yflyt,xs4+xflyt,ys4+yflyt,xs6+xflyt,ys6+yflyt);
