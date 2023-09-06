@@ -99,23 +99,30 @@ function draw() {
   triangle(xs2+xflyt,ys2+yflyt,xs4+xflyt,ys4+yflyt,xs6+xflyt,ys6+yflyt);
   triangle(xs8+xflyt,ys8+yflyt,xs4+xflyt,ys4+yflyt,xs6+xflyt,ys6+yflyt);
 
-  
   fill(255,0,0);
   triangle(xs1+xflyt,ys1+yflyt,xs3+xflyt,ys3+yflyt,xs5+xflyt,ys5+yflyt);
   triangle(xs7+xflyt,ys7+yflyt,xs3+xflyt,ys3+yflyt,xs5+xflyt,ys5+yflyt);
 
-  fill(255,0,255);
-  triangle(xs1+xflyt,ys1+yflyt,xs2+xflyt,ys2+yflyt,xs5+xflyt,ys5+yflyt);
-  triangle(xs6+xflyt,ys6+yflyt,xs2+xflyt,ys2+yflyt,xs5+xflyt,ys5+yflyt);
+  if (ys2+yflyt<ys6+yflyt)
+  {
+    fill(255,0,255);
+    triangle(xs1+xflyt,ys1+yflyt,xs2+xflyt,ys2+yflyt,xs5+xflyt,ys5+yflyt);
+    triangle(xs6+xflyt,ys6+yflyt,xs2+xflyt,ys2+yflyt,xs5+xflyt,ys5+yflyt);
+  }
 
-  fill(255,255,0);
-  triangle(xs3+xflyt,ys3+yflyt,xs7+xflyt,ys7+yflyt,xs4+xflyt,ys4+yflyt);
-  triangle(xs8+xflyt,ys8+yflyt,xs7+xflyt,ys7+yflyt,xs4+xflyt,ys4+yflyt);
+  if(ys4+yflyt>ys8+yflyt)
+  {
+    fill(255,255,0);
+    triangle(xs3+xflyt,ys3+yflyt,xs7+xflyt,ys7+yflyt,xs4+xflyt,ys4+yflyt);
+    triangle(xs8+xflyt,ys8+yflyt,xs7+xflyt,ys7+yflyt,xs4+xflyt,ys4+yflyt);
+  }
 
   fill(0,255,0);
   triangle(xs1+xflyt,ys1+yflyt,xs2+xflyt,ys2+yflyt,xs4+xflyt,ys4+yflyt);
   triangle(xs4+xflyt,ys4+yflyt,xs1+xflyt,ys1+yflyt,xs3+xflyt,ys3+yflyt);
-  pop();  
+  pop();
+
+  console.log('P2: ' + xs2+xflyt + ' , ' + ys2+yflyt);
 
   fill(0);
   text("P1",xs1+xflyt,ys1+yflyt);
@@ -127,15 +134,3 @@ function draw() {
   text("P7",xs7+xflyt,ys7+yflyt);
   text("P8",xs8+xflyt,ys8+yflyt);
 }
-
-// function mousePressed()
-// {
-//   p1[2] = -100;
-//   p2[2] = -100;
-//   p3[2] = -100;
-//   p4[2] = -100;
-//   p5p[2] = -105;
-//   p6[2] = -105;
-//   p7[2] = -105;
-//   p8[2] = -105;
-// }
