@@ -79,6 +79,10 @@ function draw() {
   ys8 = (p8[1]*-50)/p8[2];
   xs8 = (p8[0]*-50)/p8[2];
 
+  DrawObject();
+}
+
+function DrawObject() {
   stroke(2);
   line(xs1+xflyt,ys1+yflyt,xs2+xflyt,ys2+yflyt);
   line(xs2+xflyt,ys2+yflyt,xs4+xflyt,ys4+yflyt);
@@ -124,8 +128,6 @@ function draw() {
   triangle(xs1+xflyt,ys1+yflyt,xs2+xflyt,ys2+yflyt,xs4+xflyt,ys4+yflyt);
   triangle(xs4+xflyt,ys4+yflyt,xs1+xflyt,ys1+yflyt,xs3+xflyt,ys3+yflyt);
   pop();
-
-  console.log('P2: ' + xs2+xflyt + ' , ' + ys2+yflyt);
 
   fill(0);
   text("P1",xs1+xflyt,ys1+yflyt);
