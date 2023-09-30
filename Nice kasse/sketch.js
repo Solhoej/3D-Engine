@@ -13,20 +13,36 @@ yflyt = 200;
 function setup() {
   createCanvas(400, 400);
   xModifier = createSlider(-400,400,0);
-  xModifier.position(285,25);
+  xModifier.position(285,45);
 
   yModifier = createSlider(-400,400,0);
-  yModifier.position(285,50);
+  yModifier.position(285,70);
 
   zModifier = createSlider(-400,0,-100);
-  zModifier.position(285,75);
+  zModifier.position(285,95);
+
+  xScaling = createSlider(1, 6, 1);
+  xScaling.position(50, 45);
+
+  yScaling = createSlider(1, 6, 1);
+  yScaling.position(50, 70);
 }
 
 function draw() {
   background(220);
-  text('X:', 250, 18.5);
-  text('Y:', 250, 42.5);
-  text('Z:', 250, 68.5);
+  push();
+  text('Flytning:', 250, 18.5);
+  text('X:', 250, 38.5);
+  text('Y:', 250, 62.5);
+  text('Z:', 250, 88.5);
+
+  text('Skalering:', 15, 18.5);
+  text('X:', 15, 38.5);
+  text('Y:', 15, 62.5);
+  pop();
+
+  xScale = xScaling.value();
+  yScale = yScaling.value();
 
   p1[0] = xModifier.value();
   p2[0] = xModifier.value()+40;
@@ -55,29 +71,29 @@ function draw() {
   p7[2] = zModifier.value()-5;
   p8[2] = zModifier.value()-5;
 
-  ys1 = (p1[1]*-50)/p1[2];
-  xs1 = (p1[0]*-50)/p1[2];
+  ys1 = ((p1[1]*-50)/p1[2]) * yScale;
+  xs1 = ((p1[0]*-50)/p1[2]) * xScale;
 
-  ys2 = (p2[1]*-50)/p2[2];
-  xs2 = (p2[0]*-50)/p2[2];
+  ys2 = ((p2[1]*-50)/p2[2]) * yScale;
+  xs2 = ((p2[0]*-50)/p2[2]) * xScale;
 
-  ys3 = (p3[1]*-50)/p3[2];
-  xs3 = (p3[0]*-50)/p3[2];
+  ys3 = ((p3[1]*-50)/p3[2]) * yScale;
+  xs3 = ((p3[0]*-50)/p3[2]) * xScale;
 
-  ys4 = (p4[1]*-50)/p4[2];
-  xs4 = (p4[0]*-50)/p4[2];
+  ys4 = ((p4[1]*-50)/p4[2]) * yScale;
+  xs4 = ((p4[0]*-50)/p4[2]) * xScale;
 
-  ys5 = (p5p[1]*-50)/p5p[2];
-  xs5 = (p5p[0]*-50)/p5p[2];
+  ys5 = ((p5p[1]*-50)/p5p[2]) * yScale;
+  xs5 = ((p5p[0]*-50)/p5p[2]) * xScale;
 
-  ys6 = (p6[1]*-50)/p6[2];
-  xs6 = (p6[0]*-50)/p6[2];
+  ys6 = ((p6[1]*-50)/p6[2]) * yScale;
+  xs6 = ((p6[0]*-50)/p6[2]) * xScale;
 
-  ys7 = (p7[1]*-50)/p7[2];
-  xs7 = (p7[0]*-50)/p7[2];
+  ys7 = ((p7[1]*-50)/p7[2]) * yScale;
+  xs7 = ((p7[0]*-50)/p7[2]) * xScale;
 
-  ys8 = (p8[1]*-50)/p8[2];
-  xs8 = (p8[0]*-50)/p8[2];
+  ys8 = ((p8[1]*-50)/p8[2]) * yScale;
+  xs8 = ((p8[0]*-50)/p8[2]) * xScale;
 
   DrawObject();
 }
@@ -115,10 +131,7 @@ function DrawObject() {
     fill(255,0,255);
     triangle(xs1+xflyt,ys1+yflyt,xs2+xflyt,ys2+yflyt,xs5+xflyt,ys5+yflyt);
     triangle(xs6+xflyt,ys6+yflyt,xs2+xflyt,ys2+yflyt,xs5+xflyt,ys5+yflyt);
-  }
-
-  if(ys4+yflyt>ys8+yflyt)
-  {
+  } else {
     fill(255,255,0);
     triangle(xs3+xflyt,ys3+yflyt,xs7+xflyt,ys7+yflyt,xs4+xflyt,ys4+yflyt);
     triangle(xs8+xflyt,ys8+yflyt,xs7+xflyt,ys7+yflyt,xs4+xflyt,ys4+yflyt);
